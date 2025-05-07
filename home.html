@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Stickers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #f8f8f8;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            color: #ff4757;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .sidebar p {
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            color: #ff4757;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .stickers {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .sticker {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .sticker1 {
+            background-image: url('https://img.icons8.com/emoji/150/000000/rose.png');
+            left: 10px;
+            transform: rotate(-20deg);
+        }
+
+        .sticker2 {
+            background-image: url('https://img.icons8.com/emoji/150/000000/sparkling-heart.png');
+            right: 10px;
+            transform: rotate(20deg);
+        }
+
+        .sticker3 {
+            background-image: url('https://img.icons8.com/emoji/150/000000/love-letter.png');
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(10deg);
+        }
+
+        .sticker4 {
+            background-image: url('https://img.icons8.com/emoji/150/000000/cupid.png');
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: #ff4757;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.3); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(-10deg); }
+        }
+
+        h2 {
+            color: #ff4757;
+            font-size: 2.8rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .love-message {
+            color: #333;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        .extra-info {
+            color: #333;
+            font-size: 1rem;
+            margin: 15px 0;
+            max-width: 500px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        #yesBtn {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        #yesBtn:hover {
+            background: #ff6b81;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background: #d3d3d3;
+            color: #333;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+            .stickers {
+                width: 200px;
+                height: 200px;
+            }
+
+            .sticker {
+                width: 100px;
+                height: 100px;
+            }
+
+            .heart {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .love-message, .extra-info {
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                box-shadow: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stickers {
+                width: 180px;
+                height: 180px;
+            }
+
+            .sticker {
+                width: 90px;
+                height: 90px;
+            }
+
+            .heart {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .love-message, .extra-info {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Keriton Tech Uganda</h3>
+        <p>Keriton Tech Uganda is a leading innovator in creative web solutions, delivering heartfelt and interactive experiences to users across the globe.</p>
+        <p>Our mission is to spread love and positivity through technology, crafting engaging platforms that connect people in meaningful ways.</p>
+        <p><a href="https://keriton-tech-uganda.com" target="_blank">Learn more about us</a></p>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <div class="stickers">
+                <div class="sticker sticker1"></div>
+                <div class="sticker sticker2"></div>
+                <div class="sticker sticker3"></div>
+                <div class="sticker sticker4"></div>
+                <div class="heart">❤️</div>
+            </div>
+            <h2>Do you still love me, Joanna?</h2>
+            <p class="love-message">My heart beats for you, always and forever!</p>
+            <p class="extra-info">Every moment with you feels like a fairytale. Let's create more unforgettable memories together, wrapped in love and joy!</p>
+            <div class="buttons">
+                <button id="yesBtn" onclick="window.location.href='memo.html'">Yes</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        let angle = 0;
+        let isMoving = false;
+
+        noBtn.addEventListener('mouseover', () => {
+            if (!isMoving) {
+                isMoving = true;
+                const radius = 20; // Small radius to stay very close to Yes button
+                const buttonsContainer = document.querySelector('.buttons');
+                const containerRect = buttonsContainer.getBoundingClientRect();
+                const yesBtnRect = yesBtn.getBoundingClientRect();
+                const noBtnRect = noBtn.getBoundingClientRect();
+
+                // Center of circular motion positioned just left of Yes button
+                const centerX = yesBtnRect.left - containerRect.left - radius - 5; // Position just left of Yes button
+                const centerY = noBtnRect.height / 2;
+
+                const moveCircular = () => {
+                    angle += 0.1; // Speed of rotation
+                    let newX = centerX + radius * Math.cos(angle) - noBtnRect.width / 2;
+                    let newY = centerY + radius * Math.sin(angle) - noBtnRect.height / 2;
+
+                    // Ensure No button stays just left of Yes button and doesn't move right
+                    const maxX = yesBtnRect.left - containerRect.left - 5; // 5px gap from Yes button
+                    newX = Math.min(maxX, newX);
+
+                    noBtn.style.position = 'relative';
+                    noBtn.style.left = `${newX}px`;
+                    noBtn.style.top = `${newY}px`;
+
+                    if (isMoving) {
+                        requestAnimationFrame(moveCircular);
+                    }
+                };
+
+                moveCircular();
+            }
+        });
+
+        noBtn.addEventListener('mouseout', () => {
+            isMoving = false;
+            noBtn.style.left = '0px';
+            noBtn.style.top = '0px';
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93be71f76b95bf81',t:'MTc0NjU5NzA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
