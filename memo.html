@@ -120,7 +120,7 @@
         .slideshow-container {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 500px; /* Increased height to better accommodate full images */
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -131,8 +131,9 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-size: cover;
+            background-size: contain; /* Changed to contain to show full image */
             background-position: center;
+            background-repeat: no-repeat; /* Prevent tiling */
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
@@ -265,7 +266,7 @@
             }
 
             .slideshow-container {
-                height: 300px;
+                height: 350px; /* Adjusted for smaller screens */
             }
 
             .caption {
@@ -288,7 +289,7 @@
             }
 
             .slideshow-container {
-                height: 200px;
+                height: 250px; /* Adjusted for very small screens */
             }
 
             .caption {
@@ -438,8 +439,6 @@
         audio.play().catch(err => console.log('Audio play failed:', err));
         resetTimer();
         setInterval(nextSlide, slideInterval);
-
-        // Remove Cloudflare script for simplicity
     </script>
 </body>
 </html>
