@@ -17,43 +17,11 @@
             min-height: 100vh;
             background: #fff;
             overflow-x: hidden;
-        }
-
-        .sidebar {
-            width: 250px;
-            background: #f8f8f8;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        .sidebar h3 {
-            color: #ff4757;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .sidebar p {
-            color: #333;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .sidebar a {
-            color: #ff4757;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .sidebar a:hover {
-            text-decoration: underline;
+            justify-content: center;
+            align-items: center;
         }
 
         .main-content {
-            margin-left: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -199,14 +167,6 @@
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-
-            .main-content {
-                margin-left: 200px;
-            }
-
             .stickers {
                 width: 200px;
                 height: 200px;
@@ -236,17 +196,6 @@
         }
 
         @media (max-width: 480px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: static;
-                box-shadow: none;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
             .stickers {
                 width: 180px;
                 height: 180px;
@@ -272,12 +221,6 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h3>Keriton Tech Uganda</h3>
-        <p>Keriton Tech Uganda is a leading innovator in creative web solutions, delivering heartfelt and interactive experiences to users across the globe.</p>
-        <p>Our mission is to spread love and positivity through technology, crafting engaging platforms that connect people in meaningful ways.</p>
-        <p><a href="https://keriton-tech-uganda.com" target="_blank">Learn more about us</a></p>
-    </div>
     <div class="main-content">
         <div class="container">
             <div class="stickers">
@@ -306,23 +249,21 @@
         noBtn.addEventListener('mouseover', () => {
             if (!isMoving) {
                 isMoving = true;
-                const radius = 20; // Small radius to stay very close to Yes button
+                const radius = 20;
                 const buttonsContainer = document.querySelector('.buttons');
                 const containerRect = buttonsContainer.getBoundingClientRect();
                 const yesBtnRect = yesBtn.getBoundingClientRect();
                 const noBtnRect = noBtn.getBoundingClientRect();
 
-                // Center of circular motion positioned just left of Yes button
-                const centerX = yesBtnRect.left - containerRect.left - radius - 5; // Position just left of Yes button
+                const centerX = yesBtnRect.left - containerRect.left - radius - 5;
                 const centerY = noBtnRect.height / 2;
 
                 const moveCircular = () => {
-                    angle += 0.1; // Speed of rotation
+                    angle += 0.1;
                     let newX = centerX + radius * Math.cos(angle) - noBtnRect.width / 2;
                     let newY = centerY + radius * Math.sin(angle) - noBtnRect.height / 2;
 
-                    // Ensure No button stays just left of Yes button and doesn't move right
-                    const maxX = yesBtnRect.left - containerRect.left - 5; // 5px gap from Yes button
+                    const maxX = yesBtnRect.left - containerRect.left - 5;
                     newX = Math.min(maxX, newX);
 
                     noBtn.style.position = 'relative';
@@ -344,5 +285,5 @@
             noBtn.style.top = '0px';
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93be71f76b95bf81',t:'MTc0NjU5NzA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
