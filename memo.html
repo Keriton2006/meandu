@@ -120,7 +120,7 @@
         .slideshow-container {
             position: relative;
             width: 100%;
-            height: 500px; /* Increased height to better accommodate full images */
+            height: 500px;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -131,9 +131,9 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-size: contain; /* Changed to contain to show full image */
+            background-size: contain;
             background-position: center;
-            background-repeat: no-repeat; /* Prevent tiling */
+            background-repeat: no-repeat;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
@@ -177,7 +177,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            animation: progress 4s linear forwards;
+            animation: progress 10s linear forwards; /* Updated to 10s */
         }
 
         @keyframes progress {
@@ -266,7 +266,7 @@
             }
 
             .slideshow-container {
-                height: 350px; /* Adjusted for smaller screens */
+                height: 350px;
             }
 
             .caption {
@@ -289,7 +289,7 @@
             }
 
             .slideshow-container {
-                height: 250px; /* Adjusted for very small screens */
+                height: 250px;
             }
 
             .caption {
@@ -310,7 +310,7 @@
     </style>
 </head>
 <body>
-    <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
     <div class="sidebar hidden">
         <h3>Keriton Tech Uganda</h3>
         <p>Keriton Tech Uganda is a leading innovator in creative web solutions, delivering heartfelt and interactive experiences to users across the globe.</p>
@@ -368,7 +368,7 @@
     </div>
 
     <audio id="slideshowAudio" loop>
-        <source src="audio/romantic-bg.mp3" type="audio/mpeg">
+        <source src="o.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -380,8 +380,11 @@
         const audioBtn = document.querySelector('.audio-btn');
         const sidebar = document.querySelector('.sidebar');
         let currentSlide = 0;
-        const slideInterval = 4000; // 4 seconds per slide
+        const slideInterval = 10000; // Changed to 10 seconds
         let isPlaying = true;
+
+        // Set initial audio volume to 30%
+        audio.volume = 0.3;
 
         // Create navigation dots
         slides.forEach((_, index) => {
