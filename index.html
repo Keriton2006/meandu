@@ -17,43 +17,11 @@
             min-height: 100vh;
             background: #fff;
             overflow-x: hidden;
-        }
-
-        .sidebar {
-            width: 250px;
-            background: #f8f8f8;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        .sidebar h3 {
-            color: #ff4757;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .sidebar p {
-            color: #333;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .sidebar a {
-            color: #ff4757;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .sidebar a:hover {
-            text-decoration: underline;
+            justify-content: center;
+            align-items: center;
         }
 
         .main-content {
-            margin-left: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -182,14 +150,6 @@
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-
-            .main-content {
-                margin-left: 200px;
-            }
-
             .login-container {
                 padding: 30px;
             }
@@ -208,17 +168,6 @@
         }
 
         @media (max-width: 480px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: static;
-                box-shadow: none;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
             .login-container {
                 padding: 20px;
             }
@@ -242,12 +191,6 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h3>Keriton Tech Uganda</h3>
-        <p>Keriton Tech Uganda is a leading innovator in creative web solutions, delivering heartfelt and interactive experiences to users across the globe.</p>
-        <p>Our mission is to spread love and positivity through technology, crafting engaging platforms that connect people in meaningful ways.</p>
-        <p><a href="https://keriton-tech-uganda.com" target="_blank">Learn more about us</a></p>
-    </div>
     <div class="main-content">
         <div class="login-container">
             <div class="heart-decoration">
