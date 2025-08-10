@@ -31,11 +31,12 @@
             animation: fadeIn 0.8s ease-in-out;
         }
 
-        /* Image holder for top section */
-        .image-holder {
+        /* Image at top */
+        .image-holder img {
             width: 100%;
             height: 200px;
-            background: url('your-image.jpg') center/cover no-repeat;
+            object-fit: cover;
+            display: block;
         }
 
         .content {
@@ -138,10 +139,12 @@
 <body>
 
     <div class="login-card">
-        <div class="image-holder"><img src="uscoll.jpg" alt="Love Image"></div>
+        <div class="image-holder">
+            <img src="col.jpg" alt="Love Image">
+        </div>
         <div class="content">
             <h2>Unlock Our Love</h2>
-            <p class="love-message">Joanna, i guess by now u know how much you mean to me. Log in to our special world of love!</p>
+            <p class="love-message">Joanna, my heart belongs to you. Log in to our special world of love!</p>
             <p class="extra-info">Our love story began on a magical day, and every moment since has been a treasure. Enter your name and our anniversary to relive our journey together.</p>
             
             <div class="form-group">
@@ -179,4 +182,3 @@
     </script>
 </body>
 </html>
-
